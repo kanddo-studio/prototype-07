@@ -27,7 +27,7 @@ export class GameScene extends Phaser.Scene {
 
   create() {
     // World Building
-    const worldSize = 800;
+    const worldSize = 400;
     this.physics.world.setBounds(0, 0, worldSize, worldSize);
     Utils.createGrid(this, worldSize);
 
