@@ -12,7 +12,7 @@ export class PlayerFactory {
   static preload(scene: Phaser.Scene) {
     PlayerAnimationFactory.loadSpritesheets(scene);
   }
-  
+
   static create(scene: Phaser.Scene): Entity {
     PlayerAnimationFactory.createAnimations(scene);
     const sprite = PlayerAnimationFactory.createSprite(scene);

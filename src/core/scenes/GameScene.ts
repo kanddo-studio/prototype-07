@@ -2,7 +2,6 @@ import Phaser from "phaser";
 
 import { Entity } from "kanji-ecs/core";
 
-
 import { MovementSystem } from "../systems/MovementSystem";
 import { KeyboardSystem } from "../systems/KeyboardSystem";
 
@@ -28,10 +27,9 @@ export class GameScene extends Phaser.Scene {
 
   create() {
     // World Building
-    const worldSize = 400;
+    const worldSize = 800;
     this.physics.world.setBounds(0, 0, worldSize, worldSize);
     Utils.createGrid(this, worldSize);
-
 
     // Entities
     this.player = PlayerFactory.create(this);
