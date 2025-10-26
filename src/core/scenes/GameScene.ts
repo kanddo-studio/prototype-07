@@ -8,7 +8,6 @@ import {
   InputComponent,
 } from "kanji-ecs/components";
 
-
 import { MovementSystem } from "../systems/MovementSystem";
 import { KeyboardSystem } from "../systems/KeyboardSystem";
 
@@ -27,7 +26,10 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("player", "assets/images/game/player.png");
+    this.load.spritesheet("player", "assets/images/game/player/idle.png", {
+      frameWidth: 80,
+      frameHeight: 80,
+    });
   }
 
   create() {
@@ -38,6 +40,33 @@ export class GameScene extends Phaser.Scene {
 
     // Physics Sprites
     const sprite = this.physics.add.sprite(0, 0, "player", 0);
+    sprite.setScale(4);
+
+    sprite.body.setSize(16, 16);
+    sprite.body.setOffset(32, 32);
+
+    this.anims.create({
+      key: "idle",
+      frames: this.anims.generateFrameNumbers("player", { start: 0, end: 3 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: "idle-down",
+      frames: this.anims.generateFrameNumbers("player", { start: 4, end: 7 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: "idle-up",
+      frames: this.anims.generateFrameNumbers("player", { start: 8, end: 11 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+    sprite.anims.play("idle");
 
     // Entities
     this.player = new Entity();
