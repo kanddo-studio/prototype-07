@@ -15,10 +15,10 @@ export class PhysicsSystem implements System {
 
       const body = physicsComponent.body;
 
-      if (inputComponent.keys.has("ArrowLeft")) {
-        body.setVelocityX(-velocityComponent.speed);
-      } else if (inputComponent.keys.has("ArrowRight")) {
+      if (inputComponent.keys.has("ArrowRight")) {
         body.setVelocityX(velocityComponent.speed);
+      } else if (inputComponent.keys.has("ArrowLeft")) {
+        body.setVelocityX(-velocityComponent.speed);
       } else {
         body.setVelocityX(0);
       }
